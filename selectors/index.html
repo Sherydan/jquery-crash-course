@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+
+    <style>
+        body{
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+            overflow: hidden;
+        }
+
+        header{
+            background: #333333;
+            color: #fff;
+            padding: 20px;
+            border-bottom: 4px #000000 solid;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        h1{
+            position: relative;
+        }
+
+        #container{
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+
+        }
+
+    </style>
+    
+    <title>Selectors</title>
+</head>
+<body>
+
+    <header>
+        <h1>JQuery Selectors</h1>
+    </header>
+
+    <div id="container">
+        <button id="animate-right">Animate H1 right</button>
+        <button id="animate-left">Animate h1 left</button>
+        <h1 id="heading1">Heading One</h1>
+        <p id="para1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam ea soluta ullam fugiat rerum enim reprehenderit mollitia corrupti quas <span>perspiciatis qui, distinctio beatae obcaecati! Quos assumenda</span>  doloribus distinctio suscipit. Veritatis ut iure ipsa eligendi sed veniam incidunt in, modi facilis debitis fuga provident adipisci inventore ex nisi! Veritatis, blanditiis molestiae.</p>
+
+        <h1 class="heading2">Heading Two</h1>
+        <p class="para2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cum necessitatibus, ipsum quia illo quidem sit dolores officiis sed blanditiis alias quod quas, porro veniam assumenda nam natus ab. Iste accusantium vitae delectus rerum officia quis, dolorem asperiores sint iure modi, blanditiis aspernatur, numquam libero? Quis at dolore enim. Repellendus.</p>
+
+        <input type="button" value="Button 1">
+        <input type="submit" value="Submit">
+        <input type="text" name="text" id="text">
+
+        <ul id="list">
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+        </ul>
+
+        <a href="http://google.com">Google</a>
+        <a href="http://facebook.com">Facebook</a>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#animate-right").click(function(){
+                 $("h1").animate({left: '250px'});
+            });
+
+            $("#animate-left").click(function(){
+                $('h1').animate({left: '0px'});
+            });
+        });
+
+
+        /* formas para seleccionar elementos, tal como en css */
+        /*$('h1').hide();
+        $('#heading1').hide();
+        $('.para2').hide();
+        $('#para1 span').hide();
+        */
+
+        /* aplicar css */
+        $('p span').css('color', 'red');
+        $('ul#list li:first').css('color', 'red');
+        $('#list li:nth-child(odd)').css('background', 'yellow');
+        $('#list li:nth-child(2n)').css('list-style', 'none');
+        $('[href]').css('color', 'red');
+        $('a[href="http://facebook.com"]').css('color', 'blue');
+        // $('*').hide();
+    </script>
+    
+</body>
+</html>
