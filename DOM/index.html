@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+
+    <style>
+        body{
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+            
+        }
+
+        header{
+            background: #333333;
+            color: #fff;
+            padding: 20px;
+            border-bottom: 4px #000000 solid;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        h1{
+            position: relative;
+        }
+
+        #container{
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+        #container>h1{
+            text-align: center;
+        }
+
+        .blue{
+            color: blue;
+        }
+
+        .red{
+            color: red;
+        }
+
+    </style>
+    
+    <title>DOM</title>
+</head>
+<body>
+
+    <header>
+        <h1>JQuery DOM Manipulation</h1>
+    </header>
+
+    <div id="container">
+        <button id="btn1">Button 1</button>
+        <p class="para1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, eos.</p>
+        <p class="para2">Lorem ipsum dolor sit amet.</p>
+
+        <div id="msg">Mensaje</div>
+        <input type="text" name="addItem" id="addItem"> <br>
+        <ul id="list">
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+            <li>List item 4</li>
+            <li>List item 5</li>
+        </ul>
+
+        <ul id="users">
+
+        </ul>
+      <a href="http://google.com">Google</a>
+
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // añadir multiples reglas css
+           $('.para1').css({color: 'red', background: 'black'});
+
+           $('.para2').addClass('blue');
+            
+            // añadir y remover clase
+           $('#btn1').click(function(){
+               $('.para2').toggleClass('blue');
+           });
+        
+           // $('#msg').text('This is a message');
+           // html me permite colocar tags
+           // $('#msg').html('<h1>Hello world</h1>');
+           
+           //añadir elementos a la lista
+           /*
+           $('ul').append('<li>Append list item</li>');
+           $('ul').prepend('<li>Prepend list item</li>');
+           
+           $('.para1').appendTo('.para2');
+           
+           // añadir elementos justo antes de el
+           // $('ul').before('<h2>Hello</h2>');
+           // eliminar todos los elementos hijos
+           // $('ul').empty();
+           // eliminar el elemento del DOM
+           $('ul').detach();
+           // añadir y remover atributos
+           $('a').attr('target', '_blank');
+
+           $('a').removeAttr('target');
+           */
+
+           // encapsular items dentro de otros
+           // wrap encapsulara cada elemento p con <strong>
+           // $('p').wrap('<strong>');
+           // wrapAll encapsulara todos los elementos p con <strong>
+           $('p').wrapAll('<strong>');
+           
+           $('#addItem').keyup(function(e){
+                var keyCode = e.which;
+                if (keyCode == 13) {
+                    e.preventDefault();
+                    $('ul').append('<li>'+e.target.value+'</li>')
+                    $('#addItem').val('');
+                };
+           });
+           
+           // añadir items desde un arreglo
+           var users = ['Luis', 'Antonio', 'Diego', 'Jose', 'Andres'];
+
+           $.each(users, function(i, val){
+               $('#users').append('<li>'+val+'</li>');
+           });
+
+           // convertir lista en un arreglo y mostrarlo en consola
+           var listArray = $('ul#list li').toArray();
+           console.log(listArray);
+           $.each(listArray, function(i, val){
+               console.log(val.innerHTML);
+           });
+        });
+    </script>
+    
+</body>
+</html>
