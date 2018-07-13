@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+
+    <style>
+        body{
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+            overflow: hidden;
+        }
+
+        header{
+            background: #333333;
+            color: #fff;
+            padding: 20px;
+            border-bottom: 4px #000000 solid;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        h1{
+            position: relative;
+        }
+
+        #container{
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+        #container>h1{
+            text-align: center;
+        }
+
+    </style>
+    
+    <title>Selectors</title>
+</head>
+<body>
+
+    <header>
+        <h1>JQuery Events</h1>
+    </header>
+
+    <div id="container">
+       <h1>Mouse Events</h1>
+       <button id="btn1">Button 1</button>
+       <button class="btn2">Button 2</button>
+        
+       <p id="para1" class="default-class">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus necessitatibus, iure omnis fugit vero odit voluptates harum architecto nesciunt exercitationem, quibusdam similique nulla at aperiam! Blanditiis voluptate eaque, sed corrupti corporis ducimus dolores illo. Numquam ullam placeat nostrum laudantium quis! Doloremque eaque aut culpa fugiat itaque vitae eius reprehenderit.</p>
+
+       <p id="msg"></p>
+
+       <hr>
+
+       <form action="" method="post" id="form">
+            <label for="name">Name</label> <br>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="email">Email</label> <br>
+            <input type="text" name="email" id="email">
+            <br>
+            <label for="gender">Gender</label> <br>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select> <br>
+
+            <input type="submit" value="Submit">
+       </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            /*
+            $('#btn1').click(function(){
+                alert('Button 1 clicked');
+            });
+
+            $('.btn2').click(function(){
+                $('#msg').html('Button 2 clicked');                
+            });
+            
+
+            $('#btn1').on('click', function(){
+                $('#msg').html('Button 1 clicked using "on"');
+            });
+            
+
+            $('#btn1').click(function(){
+                $('#para1').hide();
+            });
+
+            $('.btn2').click(function(){
+                $('#para1').show();
+            });
+            
+            
+            /* toggle reemplaza a show y hide */
+            /*
+            $('#btn1').click(function(){
+                $('#para1').toggle();
+            });
+            */
+
+             /* hover es la combinacion de mouseenter y mouseleave 
+              * usar mouseenter y mouseleave tal como $('#btn1').on('click', function()
+             */
+            /*
+            $('#btn1').hover(function(){
+                $('#para1').toggle();
+            });
+            
+
+            $('#btn1').mousedown(function(){
+                $('#para1').toggle();
+            });
+
+            /* al pasarle e a la funcion y mostrarla en consola,
+             * esta me muestra una lista con propiedades a as cuales puedo llamar
+             
+            $('#btn1').click(function(e){
+                console.log(e);
+                $('#msg').text(e.currentTarget.outerHTML);
+            });
+            
+            $(document).on('mousemove', function(e){
+                $('#msg').text(" Coords X:"+e.clientX+" Y: "+e.clientY)
+            });
+            /*
+            
+           $('input').focus(function(){
+               //alert('focus');
+               /* usar la palabra "this" para decirle que la siguiente linea se aplique a cualquier elemento input 
+               $(this).css('background', 'pink');
+           });
+
+           $('input').blur(function(){
+               //alert('focus');
+               /* usar la palabra "this" para decirle que la siguiente linea se aplique a cualquier elemento input 
+               $(this).css('background', 'white');
+           });
+
+           $('input').keydown(function(e){
+               console.log(e.target.value);
+           });
+           
+           $('select#gender').change(function(){
+               alert('Changed');
+           });
+           */
+
+           $('#form').submit(function(e){
+               e.preventDefault();
+               console.log('Form Submitted');
+               var name = $('input#name').val();
+               console.log(name);
+           });
+
+           
+        });
+    </script>
+    
+</body>
+</html>
