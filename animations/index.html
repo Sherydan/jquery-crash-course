@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+        </script>
+
+    <style>
+        body {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+
+        }
+
+        header {
+            background: #333333;
+            color: #fff;
+            padding: 20px;
+            border-bottom: 4px #000000 solid;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            position: relative;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+        #container>h1 {
+            text-align: center;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .red {
+            color: red;
+        }
+
+        #box {
+            background: #333;
+            color: white;
+            width: 500px;
+            height: 90px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #box2 {
+            background: red;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+    </style>
+
+    <title>Animations</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Animations</h1>
+    </header>
+
+    <div id="container">
+        <button id="fadeOut">Fade Out</button>
+        <button id="fadeIn">Fade In</button>
+        <button id="fadeToggle">Fade toggle</button>
+
+        <hr>
+
+        <button id="btnSlideUp">Slide up</button>
+        <button id="btnSlideDown">Slide down</button>
+        <button id="btnSlideToggle">Slide Toggle</button>
+        <button id="btnStop">Stop</button>
+
+        <hr>
+
+        <div id="box">
+            <h1>Hello World</h1>
+        </div>
+
+        <hr>
+
+        <button id="moveLeft">Move left</button>
+        <button id="moveRight">Move right</button>
+        <button id="moveArround">Move arround</button>
+
+        <hr>
+
+        <div id="box2">
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#fadeIn').click(function () {
+                $('#box').fadeIn(1000, function () {
+                    $('#fadeOut').text('fade out');
+                });
+            });
+
+            $('#fadeOut').click(function () {
+                $('#box').fadeOut(1000, function () {
+                    $('#fadeOut').text('Its Gone');
+                });
+            });
+
+            $('#fadeToggle').click(function () {
+                $('#box').fadeToggle(500);
+            });
+
+            $('#btnSlideUp').click(function () {
+                $('#box').slideUp(500);
+            });
+
+            $('#btnSlideDown').click(function () {
+                $('#box').slideDown(500);
+            });
+
+            $('#btnSlideToggle').click(function () {
+                $('#box').slideToggle(1180);
+            });
+
+            $('#btnStop').click(function () {
+                $('#box').stop();
+
+            });
+
+            $('#moveRight').click(function () {
+                $('#box2').animate({
+                    left: 500,
+                    height: '300px',
+                    width: '300px',
+                    opacity: '0.5'
+                });
+            });
+
+            $('#moveLeft').click(function () {
+                $('#box2').animate({
+                    left: 0,
+                    height: '100px',
+                    width: '100px',
+                    opacity: '1'
+                });
+            });
+
+            $('#moveArround').click(function () {
+                var box = $('#box2');
+                box.animate({
+                    left: 300
+                });
+
+                box.animate({
+                    top: 300
+                });
+
+                box.animate({
+                    left: 0,
+                    top: 300
+                });
+
+                box.animate({
+                    left: 0,
+                    top: 0
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
